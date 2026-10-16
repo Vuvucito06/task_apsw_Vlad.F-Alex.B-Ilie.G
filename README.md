@@ -12,7 +12,7 @@ Test practic la disciplina **Asistență pentru programarea site-urilor web (APS
 
 Numele repository-ului (`task_apsw_Vlad.F-Alex.B-Ilie.G`) este format din prenumele și inițiala numelui de familie ale fiecărui membru al echipei.
 
-> Starea proiectului: aplicația este doar inițializată (dependențe instalate, `.gitignore` configurat). **Niciun bug nu a fost încă reparat**: identificarea și repararea lor sunt sarcina echipei.
+> **Starea proiectului:** 3 din 10 bug-uri sunt reparate, iar funcționalitatea nouă (filtrul după prioritate) este implementată. Restul issue-urilor sunt deschise. Progresul se vede în tabelul de mai jos și în [milestone-ul „Evaluare TaskFlow”](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/milestone/1).
 
 ## Cum lucrăm în echipă
 
@@ -25,7 +25,7 @@ Numele repository-ului (`task_apsw_Vlad.F-Alex.B-Ilie.G`) este format din prenum
    npm install
    ```
 
-3. **Rezervați bug-ul** în tabelul de mai jos (numele vostru în coloana „Găsit de”) înainte să începeți, ca doi colegi să nu repare aceeași problemă.
+3. **Lucrați doar pe issue-urile voastre.** Fiecare bug are un issue pe GitHub atribuit unui membru al echipei (vezi tabelul de mai jos), ca doi colegi să nu repare aceeași problemă.
 4. **Lucrați pe un branch propriu**, niciodată direct pe `main`:
 
    ```bash
@@ -38,22 +38,40 @@ Numele repository-ului (`task_apsw_Vlad.F-Alex.B-Ilie.G`) este format din prenum
 
 ## Bug-uri identificate
 
-Completați câte un rând pentru fiecare bug găsit. Detaliile de reproducere se trec în PR, folosind [docs/TESTING_TEMPLATE.md](docs/TESTING_TEMPLATE.md).
+Fiecare bug are un issue pe GitHub cu pașii de reproducere, comportamentul așteptat și fișierul în care se află problema. Detaliile de testare se trec în PR, folosind [docs/TESTING_TEMPLATE.md](docs/TESTING_TEMPLATE.md).
 
-| Nr. | Descriere scurtă | Fișier / pagină | Găsit de | Reparat de | PR | Status |
-|-----|------------------|-----------------|----------|------------|----|--------|
-| 1   |                  |                 |          |            |    |        |
-| 2   |                  |                 |          |            |    |        |
-| 3   |                  |                 |          |            |    |        |
-| 4   |                  |                 |          |            |    |        |
-| 5   |                  |                 |          |            |    |        |
-| 6   |                  |                 |          |            |    |        |
-| 7   |                  |                 |          |            |    |        |
-| 8   |                  |                 |          |            |    |        |
-| 9   |                  |                 |          |            |    |        |
-| 10  |                  |                 |          |            |    |        |
+| Issue | Descriere scurtă | Fișier | Responsabil | Status | PR |
+|-------|------------------|--------|-------------|--------|----|
+| [#1](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/issues/1) | Filtrul de status „In progress” nu afișează nicio sarcină | `src/pages/Tasks.jsx` | Fulga Vlad | ✅ Rezolvat | [#13](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/pull/13) |
+| [#2](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/issues/2) | Căutarea după persoană ține cont de majuscule | `src/pages/Tasks.jsx` | Fulga Vlad | ✅ Rezolvat | [#13](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/pull/13) |
+| [#3](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/issues/3) | Contorul de sarcini din meniul lateral este mereu „7” | `src/App.jsx` | Fulga Vlad | ✅ Rezolvat | [#13](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/pull/13) |
+| [#4](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/issues/4) | Cardul „In progress” din Dashboard arată mereu 0 | `src/pages/Dashboard.jsx` | Batlan Alex | ⏳ Deschis | — |
+| [#5](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/issues/5) | Linkul „View all” din Dashboard duce înapoi la Overview | `src/pages/Dashboard.jsx` | Batlan Alex | ⏳ Deschis | — |
+| [#6](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/issues/6) | Butonul „View project” duce înapoi la Overview | `src/pages/Projects.jsx` | Batlan Alex | ⏳ Deschis | — |
+| [#7](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/issues/7) | Dashboard și Projects nu afișează eroare când API-ul nu răspunde | `src/pages/Dashboard.jsx`, `src/pages/Projects.jsx` | Batlan Alex | ⏳ Deschis | — |
+| [#8](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/issues/8) | După ștergerea unei sarcini se ajunge pe Overview, nu în lista de sarcini | `src/pages/TaskDetails.jsx` | Ghetan Ilie | ⏳ Deschis | — |
+| [#9](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/issues/9) | După editare, sarcina își pierde proiectul | `src/pages/TaskDetails.jsx` | Ghetan Ilie | ⏳ Deschis | — |
+| [#10](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/issues/10) | Formularul acceptă un titlu format doar din spații | `src/components/TaskForm.jsx` | Ghetan Ilie | ⏳ Deschis | — |
 
-Funcționalitatea suplimentară (filtrul după prioritate) este descrisă mai jos, în enunț.
+### Alte sarcini
+
+| Issue | Descriere | Responsabil | Status | PR |
+|-------|-----------|-------------|--------|----|
+| [#11](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/issues/11) | Funcționalitatea nouă: filtru după prioritate pe pagina Tasks | Fulga Vlad | ✅ Implementat | [#13](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/pull/13) |
+| [#12](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/issues/12) | Testare finală și jurnalul de testare pentru PR | Fulga Vlad | ⏳ Deschis (după #1–#11) | — |
+
+## Ce am rezolvat
+
+### Fulga Vlad (Vuvucito06): pagina Tasks
+
+| Issue | Ce s-a schimbat | Cum s-a verificat |
+|-------|-----------------|-------------------|
+| #1 | Filtrul compară direct statusul ales cu cel din date. Înainte transforma „In progress” în „In Progress”, valoare care nu există în `db.json`. | „In progress” afișează 2 sarcini; To do 3, Review 1, Done 1, All status 7. |
+| #2 | Căutarea compară și numele persoanei cu litere mici și ignoră spațiile de la capete. O sarcină fără persoană nu mai poate produce erori. | `ana`, `Ana`, `ANA` și `  ana  ` găsesc aceleași 2 sarcini; căutarea după titlu funcționează în continuare. |
+| #3 | Contorul vine din API și se reîncarcă la fiecare schimbare de pagină. Dacă API-ul nu răspunde, contorul este ascuns. | 7 la pornire, 8 după crearea unei sarcini, 7 după ștergere; ascuns cu API-ul oprit. |
+| #11 | Filtru nou „Filter by priority” (All priorities / Low / Medium / High) lângă filtrul de status și un buton „Clear filters” în bara de filtre, vizibil când un filtru este activ. | Combinat cu căutarea și statusul (High + To do + „irina” → 1 sarcină), „Showing X of Y” corect, stare goală pentru Low + Review, resetare din ambele butoane, afișare corectă pe mobil. |
+
+Verificările au fost făcute în browser (Chromium), pe o copie a `db.json`. `npm run build` rulează fără erori.
 
 ## Pornire rapidă
 
