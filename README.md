@@ -4,95 +4,60 @@ Test practic la disciplina **Asistență pentru programarea site-urilor web (APS
 
 ## Echipa
 
-| Nr. | Nume   | Prenume | În numele repo-ului | Cont GitHub                                     | Rol în repository |
-|-----|--------|---------|---------------------|-------------------------------------------------|-------------------|
-| 1   | Fulga  | Vlad    | `Vlad.F`            | [Vuvucito06](https://github.com/Vuvucito06)     | Proprietar        |
-| 2   | Batlan | Alex    | `Alex.B`            | [5SSHift](https://github.com/5SSHift)           | Colaborator       |
-| 3   | Ghetan | Ilie    | `Ilie.G`            | [Ghetan-Ilie](https://github.com/Ghetan-Ilie)   | Colaborator       |
+| Nume | Cont GitHub | Responsabil pentru |
+|------|-------------|--------------------|
+| Fulga Vlad | [Vuvucito06](https://github.com/Vuvucito06) | pagina Tasks (#1–#3), filtrul după prioritate (#11), verificarea finală (#12) |
+| Batlan Alex | [5SSHift](https://github.com/5SSHift) | Dashboard și Projects (#4–#7) |
+| Ghetan Ilie | [Ghetan-Ilie](https://github.com/Ghetan-Ilie) | detaliile sarcinii și formularul (#8–#10) |
 
-Numele repository-ului (`task_apsw_Vlad.F-Alex.B-Ilie.G`) este format din prenumele și inițiala numelui de familie ale fiecărui membru al echipei.
+Fiecare bug are un issue pe GitHub, atribuit unui membru al echipei. Fiecare membru a lucrat pe propriul branch și a deschis un Pull Request către `main`: [#13](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/pull/13) (Vlad), [#14](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/pull/14) (Ilie), [#15](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/pull/15) (Alex). Progresul este urmărit în [milestone-ul „Evaluare TaskFlow”](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/milestone/1).
 
-> **Starea proiectului:** toate cele 10 bug-uri sunt reparate (#1–#3 Vlad, #4–#7 Alex, #8–#10 Ilie), iar funcționalitatea nouă (filtrul după prioritate) este implementată. Rămâne verificarea finală pe `main` (#12, Vlad). Progresul se vede în tabelul de mai jos și în [milestone-ul „Evaluare TaskFlow”](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/milestone/1).
+> **Stare:** toate cele 10 bug-uri sunt reparate, filtrul după prioritate este implementat, iar verificarea finală pe `main` a trecut.
 
-## Cum lucrăm în echipă
+## Bug-uri reparate
 
-1. **Acceptați invitația** de colaborator primită pe GitHub (pe email sau la [pagina de invitații](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/invitations)).
-2. **Clonați repository-ul echipei.** Fiind colaboratori, nu aveți nevoie de fork:
+| Issue | Problema | Soluția | Fișier | Responsabil | PR |
+|-------|----------|---------|--------|-------------|----|
+| [#1](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/issues/1) | Filtrul de status „In progress” nu afișa nicio sarcină. | Statusul ales este comparat direct cu cel din date. Înainte era transformat în „In Progress”, valoare care nu există în `db.json`. | `Tasks.jsx` | Fulga Vlad | [#13](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/pull/13) |
+| [#2](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/issues/2) | Căutarea după persoană ținea cont de majuscule. | Numele persoanei este comparat cu litere mici, la fel ca titlul. | `Tasks.jsx` | Fulga Vlad | [#13](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/pull/13) |
+| [#3](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/issues/3) | Contorul de sarcini din meniul lateral era mereu „7”. | Numărul vine din API și se actualizează după creare și ștergere. | `App.jsx` | Fulga Vlad | [#13](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/pull/13) |
+| [#4](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/issues/4) | Cardul „In progress” din Dashboard arăta mereu 0. | Statusul este comparat cu `In progress`, cum apare în date, nu cu `In Progress`. | `Dashboard.jsx` | Batlan Alex | [#15](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/pull/15) |
+| [#5](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/issues/5) | „View all” din Dashboard ducea înapoi la Overview. | Linkul duce la `/tasks`. Înainte ducea la `/task`, rută care nu există. | `Dashboard.jsx` | Batlan Alex | [#15](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/pull/15) |
+| [#6](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/issues/6) | „View project” ducea înapoi la Overview. | Linkul duce la `/projects/:id`. Înainte ducea la `/project/:id`. | `Projects.jsx` | Batlan Alex | [#15](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/pull/15) |
+| [#7](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/issues/7) | Cu API-ul oprit, Dashboard și Projects păreau goale, fără niciun mesaj de eroare. | Eroarea este tratată cu `.catch()` și se afișează un mesaj clar, ca pe pagina Tasks. | `Dashboard.jsx`, `Projects.jsx` | Batlan Alex | [#15](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/pull/15) |
+| [#8](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/issues/8) | După ștergerea unei sarcini se ajungea pe Overview, nu în lista de sarcini. | După ștergere se deschide `/tasks`. Înainte se deschidea `/task`, rută care nu există. | `TaskDetails.jsx` | Ghetan Ilie | [#14](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/pull/14) |
+| [#9](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/issues/9) | După editare, sarcina își pierdea proiectul. | `projectId` este salvat ca număr (`Number(...)`), nu ca text. | `TaskDetails.jsx` | Ghetan Ilie | [#14](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/pull/14) |
+| [#10](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/issues/10) | Formularul accepta un titlu format doar din spații. | Titlul este verificat după `trim()`, la creare și la editare. | `TaskForm.jsx` | Ghetan Ilie | [#14](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/pull/14) |
 
-   ```bash
-   git clone https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G.git
-   cd task_apsw_Vlad.F-Alex.B-Ilie.G
-   npm install
-   ```
+## Funcționalitatea nouă: filtru după prioritate
 
-3. **Lucrați doar pe issue-urile voastre.** Fiecare bug are un issue pe GitHub atribuit unui membru al echipei (vezi tabelul de mai jos), ca doi colegi să nu repare aceeași problemă.
-4. **Lucrați pe un branch propriu**, niciodată direct pe `main`:
+[#11](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/issues/11), Fulga Vlad, [PR #13](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/pull/13)
 
-   ```bash
-   git checkout main
-   git pull
-   git checkout -b fix/<prenume>-<descriere-scurta>   # exemplu: fix/ilie-status-filter
-   ```
+Pe pagina **Tasks**, lângă filtrul de status, există un filtru „Filter by priority” cu opțiunile All priorities, Low, Medium și High.
 
-5. **Faceți commit și push**, apoi deschideți un Pull Request către `main`. Un coleg verifică PR-ul înainte de merge.
+- Funcționează împreună cu căutarea și cu filtrul de status.
+- „Showing X of Y tasks” arată numărul de sarcini filtrate.
+- Când nu există rezultate, apare starea goală „No tasks found”.
+- Butonul „Clear filters” resetează toate filtrele și apare în bara de filtre când un filtru este activ.
 
-## Bug-uri identificate
+## Capturi de ecran
 
-Fiecare bug are un issue pe GitHub cu pașii de reproducere, comportamentul așteptat și fișierul în care se află problema. Detaliile de testare se trec în PR, folosind [docs/TESTING_TEMPLATE.md](docs/TESTING_TEMPLATE.md).
+| | |
+|---|---|
+| ![Overview](docs/screenshots/01-overview.png)<br>**Overview:** cardul „In progress” arată 2 (#4), iar contorul Tasks din meniu arată 7 (#3). | ![Tasks cu filtre](docs/screenshots/02-tasks-filtre.png)<br>**Tasks:** căutare „ana” + status „In progress” + prioritate „High” → o sarcină (#1, #2, #11). |
+| ![Fără rezultate](docs/screenshots/03-tasks-fara-rezultate.png)<br>**Tasks:** o combinație fără rezultate afișează starea goală și „Clear filters” (#11). | ![Projects](docs/screenshots/04-proiecte.png)<br>**Projects:** „View project” deschide pagina proiectului (#6). |
+| ![Detaliile proiectului](docs/screenshots/05-detalii-proiect.png)<br>**Detaliile proiectului**, deschise din „View project” (#6). | ![Validarea formularului](docs/screenshots/06-formular-validare.png)<br>**Formular:** un titlu format doar din spații este respins (#10). |
+| ![Detaliile sarcinii](docs/screenshots/07-detalii-sarcina.png)<br>**Detaliile sarcinii** după mutarea în alt proiect: proiectul nou apare corect (#9). | ![API oprit](docs/screenshots/08-api-oprit.png)<br>**Overview cu API-ul oprit:** mesaj de eroare și statistici „—” (#7). |
+| <img src="docs/screenshots/09-mobil.png" alt="Tasks pe telefon" width="240"><br>**Tasks pe telefon:** filtrele se așază pe rânduri și rămân utilizabile. | |
 
-| Issue | Descriere scurtă | Fișier | Responsabil | Status | PR |
-|-------|------------------|--------|-------------|--------|----|
-| [#1](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/issues/1) | Filtrul de status „In progress” nu afișează nicio sarcină | `src/pages/Tasks.jsx` | Fulga Vlad | ✅ Rezolvat | [#13](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/pull/13) |
-| [#2](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/issues/2) | Căutarea după persoană ține cont de majuscule | `src/pages/Tasks.jsx` | Fulga Vlad | ✅ Rezolvat | [#13](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/pull/13) |
-| [#3](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/issues/3) | Contorul de sarcini din meniul lateral este mereu „7” | `src/App.jsx` | Fulga Vlad | ✅ Rezolvat | [#13](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/pull/13) |
-| [#4](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/issues/4) | Cardul „In progress” din Dashboard arată mereu 0 | `src/pages/Dashboard.jsx` | Batlan Alex | ✅ Rezolvat | [`fix/alex-dashboard-projects`](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/pulls?q=is%3Apr+head%3Afix%2Falex-dashboard-projects) |
-| [#5](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/issues/5) | Linkul „View all” din Dashboard duce înapoi la Overview | `src/pages/Dashboard.jsx` | Batlan Alex | ✅ Rezolvat | [`fix/alex-dashboard-projects`](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/pulls?q=is%3Apr+head%3Afix%2Falex-dashboard-projects) |
-| [#6](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/issues/6) | Butonul „View project” duce înapoi la Overview | `src/pages/Projects.jsx` | Batlan Alex | ✅ Rezolvat | [`fix/alex-dashboard-projects`](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/pulls?q=is%3Apr+head%3Afix%2Falex-dashboard-projects) |
-| [#7](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/issues/7) | Dashboard și Projects nu afișează eroare când API-ul nu răspunde | `src/pages/Dashboard.jsx`, `src/pages/Projects.jsx` | Batlan Alex | ✅ Rezolvat | [`fix/alex-dashboard-projects`](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/pulls?q=is%3Apr+head%3Afix%2Falex-dashboard-projects) |
-| [#8](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/issues/8) | După ștergerea unei sarcini se ajunge pe Overview, nu în lista de sarcini | `src/pages/TaskDetails.jsx` | Ghetan Ilie | ✅ Rezolvat | [`fix/ilie-task-details`](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/pulls?q=is%3Apr+head%3Afix%2Filie-task-details) |
-| [#9](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/issues/9) | După editare, sarcina își pierde proiectul | `src/pages/TaskDetails.jsx` | Ghetan Ilie | ✅ Rezolvat | [`fix/ilie-task-details`](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/pulls?q=is%3Apr+head%3Afix%2Filie-task-details) |
-| [#10](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/issues/10) | Formularul acceptă un titlu format doar din spații | `src/components/TaskForm.jsx` | Ghetan Ilie | ✅ Rezolvat | [`fix/ilie-task-details`](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/pulls?q=is%3Apr+head%3Afix%2Filie-task-details) |
+## Testare
 
-### Alte sarcini
+Verificarea finală ([#12](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/issues/12)) a fost făcută pe `main`, cu `npm run api` și `npm run dev` pornite și cu API-ul rulând pe o copie a `db.json`. Rezultate:
 
-| Issue | Descriere | Responsabil | Status | PR |
-|-------|-----------|-------------|--------|----|
-| [#11](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/issues/11) | Funcționalitatea nouă: filtru după prioritate pe pagina Tasks | Fulga Vlad | ✅ Implementat | [#13](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/pull/13) |
-| [#12](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/issues/12) | Testare finală și jurnalul de testare pentru PR | Fulga Vlad | ⏳ Deschis (după #1–#11) | — |
+- 97 de verificări automate în browser (Chromium), toate trecute;
+- `npm run build` rulează fără erori.
 
-## Ce am rezolvat
-
-### Fulga Vlad (Vuvucito06): pagina Tasks
-
-| Issue | Ce s-a schimbat | Cum s-a verificat |
-|-------|-----------------|-------------------|
-| #1 | Filtrul compară direct statusul ales cu cel din date. Înainte transforma „In progress” în „In Progress”, valoare care nu există în `db.json`. | „In progress” afișează 2 sarcini; To do 3, Review 1, Done 1, All status 7. |
-| #2 | Căutarea compară și numele persoanei cu litere mici și ignoră spațiile de la capete. O sarcină fără persoană nu mai poate produce erori. | `ana`, `Ana`, `ANA` și `  ana  ` găsesc aceleași 2 sarcini; căutarea după titlu funcționează în continuare. |
-| #3 | Contorul vine din API și se reîncarcă la fiecare schimbare de pagină. Dacă API-ul nu răspunde, contorul este ascuns. | 7 la pornire, 8 după crearea unei sarcini, 7 după ștergere; ascuns cu API-ul oprit. |
-| #11 | Filtru nou „Filter by priority” (All priorities / Low / Medium / High) lângă filtrul de status și un buton „Clear filters” în bara de filtre, vizibil când un filtru este activ. | Combinat cu căutarea și statusul (High + To do + „irina” → 1 sarcină), „Showing X of Y” corect, stare goală pentru Low + Review, resetare din ambele butoane, afișare corectă pe mobil. |
-
-Verificările au fost făcute în browser (Chromium), pe o copie a `db.json`. `npm run build` rulează fără erori.
-
-### Ghetan Ilie (Ghetan-Ilie): detaliile sarcinii și formularul
-
-| Issue | Ce s-a schimbat | Cum s-a verificat |
-|-------|-----------------|-------------------|
-| #8 | După ștergere, aplicația navighează la `/tasks`. Înainte naviga la `/task`, rută care nu există, așa că ajungeai pe Overview. | Ștergere confirmată → lista de sarcini, fără sarcina ștearsă; „Cancel” la confirmare → sarcina rămâne. |
-| #9 | La salvarea editării, `projectId` este convertit în număr cu `Number(...)`, la fel ca la creare. Înainte se salva ca text („2”), iar sarcina nu mai era găsită la niciun proiect. | După mutarea unei sarcini în alt proiect, detaliile, lista Tasks și pagina proiectului arată proiectul nou; în `db.json`, `projectId` rămâne număr. |
-| #10 | Titlul este verificat după eliminarea spațiilor de la capete (`trim()`) și se salvează fără ele. | Titlu gol sau doar spații → „A task title is required.”, fără nicio cerere către API, atât la creare, cât și la editare; „   Titlu valid   ” se salvează ca „Titlu valid”. |
-
-Verificările au fost făcute în browser (Chromium), pe o copie a `db.json`, împreună cu verificările lui Vlad, care trec în continuare. `npm run build` rulează fără erori.
-
-### Batlan Alex (5SSHift): Dashboard și Projects
-
-| Issue | Ce s-a schimbat | Cum s-a verificat |
-|-------|-----------------|-------------------|
-| #4 | Cardul „In progress” numără sarcinile cu statusul `In progress`. Înainte căuta `In Progress` (cu P mare), valoare care nu există în `db.json`. | Cardul arată 2; devine 3 când o sarcină trece în „In progress” și revine la 2 când iese. |
-| #5 | Linkul „View all” din „Recent tasks” duce la `/tasks`. Înainte ducea la `/task`, rută care nu există, așa că rămâneai pe Overview. | „View all” deschide lista de sarcini, iar în meniul lateral este evidențiat Tasks. |
-| #6 | Butonul „View project” duce la `/projects/:id`. Înainte ducea la `/project/:id`, rută care nu există. | Fiecare dintre cele 3 proiecte deschide pagina lui, cu titlul și sarcinile corecte. |
-| #7 | Dashboard și Projects tratează eroarea la încărcare (`.catch()`) și afișează un mesaj clar, ca pagina Tasks. Pe Dashboard statisticile arată „—” în loc de 0, iar textul „No tasks yet” nu mai apare; pe Projects nu mai apare „0 active projects”. | Cu API-ul oprit, ambele pagini afișează mesajul de eroare și nu mai apare `Uncaught (in promise)` în consolă. Cu API-ul pornit, paginile funcționează ca înainte. |
-
-Verificările au fost făcute în browser (Chromium), pe o copie a `db.json`, împreună cu verificările lui Vlad și Ilie, care trec în continuare. `npm run build` rulează fără erori.
+Jurnalul de testare completat după [docs/TESTING_TEMPLATE.md](docs/TESTING_TEMPLATE.md) se află în [PR #16](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/pull/16).
 
 ## Pornire rapidă
 
@@ -102,14 +67,13 @@ npm run api     # terminal 1: API-ul JSON Server pe http://localhost:3001
 npm run dev     # terminal 2: aplicația React pe http://localhost:5173
 ```
 
-Proiectul a fost verificat cu Node.js 22 și npm 11. `npm run build` rulează fără erori.
-
 ## Structura proiectului
 
 ```text
 ├── db.json                 # datele de test (proiecte și sarcini) servite de JSON Server
 ├── docs/
-│   └── TESTING_TEMPLATE.md # șablonul jurnalului de testare pentru Pull Request
+│   ├── TESTING_TEMPLATE.md # șablonul jurnalului de testare
+│   └── screenshots/        # capturile de ecran din acest README
 ├── index.html              # pagina HTML în care se montează aplicația
 ├── package.json            # scripturi npm și dependențe
 ├── vite.config.js          # configurația Vite
@@ -124,7 +88,7 @@ Proiectul a fost verificat cu Node.js 22 și npm 11. `npm run build` rulează f�
 
 ---
 
-_Mai jos este enunțul original al evaluării, primit de la cadrul didactic. Pentru lucrul în echipă, pașii din „Cum lucrăm în echipă” înlocuiesc partea de fork._
+_Mai jos este enunțul original al evaluării, primit de la cadrul didactic._
 
 # TaskFlow — proiect de evaluare
 
