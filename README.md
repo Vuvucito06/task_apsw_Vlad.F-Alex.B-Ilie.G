@@ -7,8 +7,8 @@ Test practic la disciplina **Asistență pentru programarea site-urilor web (APS
 | Nume | Cont GitHub | Responsabil pentru |
 |------|-------------|--------------------|
 | Fulga Vlad | [Vuvucito06](https://github.com/Vuvucito06) | pagina Tasks (#1–#3), filtrul după prioritate (#11), verificarea finală (#12) |
-| Batlan Alex | [5SSHift](https://github.com/5SSHift) | Dashboard și Projects (#4–#7) |
-| Ghetan Ilie | [Ghetan-Ilie](https://github.com/Ghetan-Ilie) | detaliile sarcinii și formularul (#8–#10) |
+| Bîtlan Alex | [5SSHift](https://github.com/5SSHift) | Dashboard și Projects (#4–#7) |
+| Ghețan Ilie | [Ghetan-Ilie](https://github.com/Ghetan-Ilie) | detaliile sarcinii și formularul (#8–#10) |
 
 Fiecare bug are un issue pe GitHub, atribuit unui membru al echipei. Fiecare membru a lucrat pe propriul branch și a deschis un Pull Request către `main`: [#13](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/pull/13) (Vlad), [#14](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/pull/14) (Ilie), [#15](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/pull/15) (Alex). Progresul este urmărit în [milestone-ul „Evaluare TaskFlow”](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/milestone/1).
 
