@@ -1,4 +1,4 @@
-# task_apsw_Vlad.F-Alex.B-Ilie.G
+# Task_apsw_Vlad.F-Alex.B-Ilie.G
 
 Test practic la disciplina **Asistență pentru programarea site-urilor web (APSW)**, realizat pe baza aplicației TaskFlow.
 
