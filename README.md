@@ -58,7 +58,7 @@ Fiecare bug are un issue pe GitHub cu pașii de reproducere, comportamentul așt
 | Issue | Descriere | Responsabil | Status | PR |
 |-------|-----------|-------------|--------|----|
 | [#11](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/issues/11) | Funcționalitatea nouă: filtru după prioritate pe pagina Tasks | Fulga Vlad | ✅ Implementat | [#13](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/pull/13) |
-| [#12](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/issues/12) | Testare finală și jurnalul de testare pentru PR | Ghetan Ilie | ⏳ Deschis (după #1–#11) | — |
+| [#12](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/issues/12) | Testare finală și jurnalul de testare pentru PR | Fulga Vlad | ⏳ Deschis (după #1–#11) | — |
 
 ## Ce am rezolvat
 
