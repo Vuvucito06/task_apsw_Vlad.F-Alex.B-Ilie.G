@@ -12,7 +12,7 @@ Test practic la disciplina **Asistență pentru programarea site-urilor web (APS
 
 Numele repository-ului (`task_apsw_Vlad.F-Alex.B-Ilie.G`) este format din prenumele și inițiala numelui de familie ale fiecărui membru al echipei.
 
-> **Starea proiectului:** 3 din 10 bug-uri sunt reparate, iar funcționalitatea nouă (filtrul după prioritate) este implementată. Restul issue-urilor sunt deschise. Progresul se vede în tabelul de mai jos și în [milestone-ul „Evaluare TaskFlow”](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/milestone/1).
+> **Starea proiectului:** 6 din 10 bug-uri sunt reparate (#1–#3 Vlad, #8–#10 Ilie), iar funcționalitatea nouă (filtrul după prioritate) este implementată. Rămân deschise bug-urile lui Alex (#4–#7) și testarea finală (#12). Progresul se vede în tabelul de mai jos și în [milestone-ul „Evaluare TaskFlow”](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/milestone/1).
 
 ## Cum lucrăm în echipă
 
@@ -49,9 +49,9 @@ Fiecare bug are un issue pe GitHub cu pașii de reproducere, comportamentul așt
 | [#5](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/issues/5) | Linkul „View all” din Dashboard duce înapoi la Overview | `src/pages/Dashboard.jsx` | Batlan Alex | ⏳ Deschis | — |
 | [#6](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/issues/6) | Butonul „View project” duce înapoi la Overview | `src/pages/Projects.jsx` | Batlan Alex | ⏳ Deschis | — |
 | [#7](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/issues/7) | Dashboard și Projects nu afișează eroare când API-ul nu răspunde | `src/pages/Dashboard.jsx`, `src/pages/Projects.jsx` | Batlan Alex | ⏳ Deschis | — |
-| [#8](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/issues/8) | După ștergerea unei sarcini se ajunge pe Overview, nu în lista de sarcini | `src/pages/TaskDetails.jsx` | Ghetan Ilie | ⏳ Deschis | — |
-| [#9](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/issues/9) | După editare, sarcina își pierde proiectul | `src/pages/TaskDetails.jsx` | Ghetan Ilie | ⏳ Deschis | — |
-| [#10](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/issues/10) | Formularul acceptă un titlu format doar din spații | `src/components/TaskForm.jsx` | Ghetan Ilie | ⏳ Deschis | — |
+| [#8](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/issues/8) | După ștergerea unei sarcini se ajunge pe Overview, nu în lista de sarcini | `src/pages/TaskDetails.jsx` | Ghetan Ilie | ✅ Rezolvat | [`fix/ilie-task-details`](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/pulls?q=is%3Apr+head%3Afix%2Filie-task-details) |
+| [#9](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/issues/9) | După editare, sarcina își pierde proiectul | `src/pages/TaskDetails.jsx` | Ghetan Ilie | ✅ Rezolvat | [`fix/ilie-task-details`](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/pulls?q=is%3Apr+head%3Afix%2Filie-task-details) |
+| [#10](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/issues/10) | Formularul acceptă un titlu format doar din spații | `src/components/TaskForm.jsx` | Ghetan Ilie | ✅ Rezolvat | [`fix/ilie-task-details`](https://github.com/Vuvucito06/task_apsw_Vlad.F-Alex.B-Ilie.G/pulls?q=is%3Apr+head%3Afix%2Filie-task-details) |
 
 ### Alte sarcini
 
@@ -72,6 +72,16 @@ Fiecare bug are un issue pe GitHub cu pașii de reproducere, comportamentul așt
 | #11 | Filtru nou „Filter by priority” (All priorities / Low / Medium / High) lângă filtrul de status și un buton „Clear filters” în bara de filtre, vizibil când un filtru este activ. | Combinat cu căutarea și statusul (High + To do + „irina” → 1 sarcină), „Showing X of Y” corect, stare goală pentru Low + Review, resetare din ambele butoane, afișare corectă pe mobil. |
 
 Verificările au fost făcute în browser (Chromium), pe o copie a `db.json`. `npm run build` rulează fără erori.
+
+### Ghetan Ilie (Ghetan-Ilie): detaliile sarcinii și formularul
+
+| Issue | Ce s-a schimbat | Cum s-a verificat |
+|-------|-----------------|-------------------|
+| #8 | După ștergere, aplicația navighează la `/tasks`. Înainte naviga la `/task`, rută care nu există, așa că ajungeai pe Overview. | Ștergere confirmată → lista de sarcini, fără sarcina ștearsă; „Cancel” la confirmare → sarcina rămâne. |
+| #9 | La salvarea editării, `projectId` este convertit în număr cu `Number(...)`, la fel ca la creare. Înainte se salva ca text („2”), iar sarcina nu mai era găsită la niciun proiect. | După mutarea unei sarcini în alt proiect, detaliile, lista Tasks și pagina proiectului arată proiectul nou; în `db.json`, `projectId` rămâne număr. |
+| #10 | Titlul este verificat după eliminarea spațiilor de la capete (`trim()`) și se salvează fără ele. | Titlu gol sau doar spații → „A task title is required.”, fără nicio cerere către API, atât la creare, cât și la editare; „   Titlu valid   ” se salvează ca „Titlu valid”. |
+
+Verificările au fost făcute în browser (Chromium), pe o copie a `db.json`, împreună cu verificările lui Vlad, care trec în continuare. `npm run build` rulează fără erori.
 
 ## Pornire rapidă
 
