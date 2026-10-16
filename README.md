@@ -7,8 +7,8 @@ Test practic la disciplina **Asistență pentru programarea site-urilor web (APS
 | Nr. | Nume   | Prenume | În numele repo-ului | Cont GitHub                                     | Rol în repository |
 |-----|--------|---------|---------------------|-------------------------------------------------|-------------------|
 | 1   | Fulga  | Vlad    | `Vlad.F`            | [Vuvucito06](https://github.com/Vuvucito06)     | Proprietar        |
-| 2   | Batlan | Alex    | `Alex.B`            | [5SSHift](https://github.com/5SSHift)           | Colaborator       |
-| 3   | Ghetan | Ilie    | `Ilie.G`            | [Ghetan-Ilie](https://github.com/Ghetan-Ilie)   | Colaborator       |
+| 2   | Bîtlan | Alex    | `Alex.B`            | [5SSHift](https://github.com/5SSHift)           | Colaborator       |
+| 3   | Ghețan | Ilie    | `Ilie.G`            | [Ghetan-Ilie](https://github.com/Ghetan-Ilie)   | Colaborator       |
 
 Numele repository-ului (`task_apsw_Vlad.F-Alex.B-Ilie.G`) este format din prenumele și inițiala numelui de familie ale fiecărui membru al echipei.
 
@@ -73,7 +73,7 @@ Fiecare bug are un issue pe GitHub cu pașii de reproducere, comportamentul așt
 
 Verificările au fost făcute în browser (Chromium), pe o copie a `db.json`. `npm run build` rulează fără erori.
 
-### Ghetan Ilie (Ghetan-Ilie): detaliile sarcinii și formularul
+### Ghețan Ilie (Ghetan-Ilie): detaliile sarcinii și formularul
 
 | Issue | Ce s-a schimbat | Cum s-a verificat |
 |-------|-----------------|-------------------|
@@ -83,7 +83,7 @@ Verificările au fost făcute în browser (Chromium), pe o copie a `db.json`. `n
 
 Verificările au fost făcute în browser (Chromium), pe o copie a `db.json`, împreună cu verificările lui Vlad, care trec în continuare. `npm run build` rulează fără erori.
 
-### Batlan Alex (5SSHift): Dashboard și Projects
+### Bîtlan Alex (5SSHift): Dashboard și Projects
 
 | Issue | Ce s-a schimbat | Cum s-a verificat |
 |-------|-----------------|-------------------|
